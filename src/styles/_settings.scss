@@ -1,0 +1,60 @@
+// $font-1: 'Montserrat', sans-serif;
+
+// $color-1: #ff6060;
+// $color-2: #f7f7f7;
+// $color-3: #e3e3e3;
+
+// $hauteurHeaderMobile: 83px;
+// $hauteurHeaderDesktop: 171px;
+// $hauteurFooter: 209px;
+
+// $desktopMinWidth: 62rem;
+// @mixin desktop {
+//   @media screen and (min-width: $desktopMinWidth) {
+//     @content;
+//   }
+// }
+
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// #root {
+//   font-family: $font-1;
+//   color: $color-1;
+//   margin: 0 auto;
+//   max-width: 23.4375rem;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   @include desktop {
+//     max-width: 90rem;
+//   }
+// }
+// li {
+//   list-style-type: none;
+// }
+// a {
+//   text-decoration: none;
+//   color: $color-1;
+//   cursor: pointer;
+// }
+
+// button {
+//   cursor: pointer;
+// }
+
+// #root > .mainMobile {
+//   min-height: calc(100vh - calc($hauteurFooter + $hauteurHeaderMobile + 20px));
+//   width: 90%;
+// }
+
+// #root > .mainDesktop {
+//   @include desktop {
+//     min-height: calc(
+//       100vh - calc($hauteurFooter + $hauteurHeaderDesktop + 20px)
+//     );
+//   }
+// }
