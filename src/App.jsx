@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './pages/SignUp/SignUp';
 import EmployeesList from './pages/EmployeesList/EmployeesList';
@@ -7,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<SignUp />} />
-        <Route path="/login" element={<EmployeesList />} />
+        <Route path="/employees-list" element={<EmployeesList />} />
       </Routes>
     </Router>
   );
