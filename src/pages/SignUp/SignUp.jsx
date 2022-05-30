@@ -1,7 +1,8 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
 
 function SignUp() {
-  return <div>Sign Up</div>;
+  return <Header title="HRnet" />;
 }
 
 export default SignUp;
