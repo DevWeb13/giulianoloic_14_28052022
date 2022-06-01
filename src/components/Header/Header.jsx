@@ -1,10 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Header({ title }) {
-  return (
-    <header className="title">
+  const getUrl = () => {
+    const url = window.location.pathname;
+    const path = url.split('/');
+    const currentPath = path[path.length - 1];
+
+    return currentPath;
+  };
+
+  console.log(getUrl());
+  return getUrl() === '' ? (
+    <header>
       <h1>{title}</h1>
+      <Link className="linkToEmployeesList" to="/employees-list">
+        View Current Employees
+      </Link>
+    </header>
+  ) : (
+    <header className="employeesHeader">
+      <h1 className="employeesTitle">{title}</h1>
+      <Link className="linkToHome" to="/">
+        Home
+      </Link>
     </header>
   );
 }

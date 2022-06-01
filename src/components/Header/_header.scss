@@ -1,0 +1,63 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  color: $color-1;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+}
+
+h1::before {
+  content: '';
+  background-image: url('../../../public/assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+}
+
+.linkToEmployeesList,
+.linkToHome {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-2;
+}
+
+.linkToHome {
+  width: 160px;
+  font-size: 2rem;
+}
+
+.linkToEmployeesList:hover,
+.linkToHome:hover {
+  color: $color-1;
+}
+
+.linkToEmployeesList::after {
+  content: '\f00b';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.linkToHome::before {
+  content: '\f015';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.employeesHeader,
+.employeesTitle {
+  flex-direction: row-reverse;
+}

@@ -1,8 +1,10 @@
 // $font-1: 'Montserrat', sans-serif;
 
-// $color-1: #ff6060;
-// $color-2: #f7f7f7;
-// $color-3: #e3e3e3;
+$color-1: #18534f;
+$color-2: #226d68;
+$color-3: #ecf8f6;
+$color-4: #feeaa1;
+$color-5: #d6955b;
 
 // $hauteurHeaderMobile: 83px;
 // $hauteurHeaderDesktop: 171px;
@@ -27,6 +29,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $color-3;
 }
 
 code {

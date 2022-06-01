@@ -7,7 +7,7 @@ function SignUp() {
   return (
     <div className="container">
       <Header title="HRnet" />
-      <Link to="/employees-list">View Current Employees</Link>
+
       <h2>Create Employee</h2>
       <Form />
     </div>
