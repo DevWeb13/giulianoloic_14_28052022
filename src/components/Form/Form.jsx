@@ -3,11 +3,13 @@ import DatePicker from 'react-date-picker';
 import Select from 'react-select';
 
 function Form() {
+  const dateNow = new Date();
+
   const [employee, setEmployee] = useState({
     firstName: '',
     lastName: '',
-    dateOfBirth: new Date(),
-    startDate: new Date(),
+    dateOfBirth: null,
+    startDate: null,
     street: '',
     city: '',
     state: '',
@@ -15,7 +17,7 @@ function Form() {
     department: 'sales',
   });
 
-  const options = [
+  const department = [
     { value: 'sales', label: 'Sales' },
     { value: 'marketing', label: 'Marketing' },
     { value: 'engineering', label: 'Engineering' },
@@ -262,6 +264,12 @@ function Form() {
     },
   ];
 
+  /**
+   * It takes a date object, sets the time to noon, and returns a string of the date in YYYY-MM-DD
+   * format
+   * @returns The date in ISO format.
+   */
+
   function saveEmployee() {}
 
   return (
@@ -285,40 +293,28 @@ function Form() {
       />
 
       <label htmlFor="dateOfBirth">Date of Birth</label>
-      <input
-        type="date"
-        className="formControl"
-        id="dateOfBirth"
-        value={employee.dateOfBirth.toISOString().substring(0, 10)}
-        readOnly
-      />
       <DatePicker
-        maxDate={new Date()}
+        maxDate={dateNow}
         className="datePicker"
-        onChange={(date) =>
+        onChange={(newDate) =>
           setEmployee({
             ...employee,
-            dateOfBirth: date,
+            dateOfBirth: newDate,
           })
         }
         value={employee.dateOfBirth}
       />
 
       <label htmlFor="startDate">Start Date</label>
-      <input
-        type="date"
-        className="formControl"
-        id="startDate"
-        value={employee.startDate.toISOString().substring(0, 10)}
-        readOnly
-      />
+
       <DatePicker
-        maxDate={new Date()}
+        name="startDate"
+        maxDate={dateNow}
         className="datePicker"
-        onChange={() =>
+        onChange={(startDateValue) =>
           setEmployee({
             ...employee,
-            startDate: new Date(),
+            startDate: startDateValue,
           })
         }
         value={employee.startDate}
@@ -341,14 +337,8 @@ function Form() {
       />
 
       <label htmlFor="state">State</label>
-      <input
-        type="text"
-        className="formControl"
-        id="state"
-        value={employee.state}
-        readOnly
-      />
       <Select
+        inputId="state"
         options={states}
         className="select"
         onChange={(e) => setEmployee({ ...employee, state: e.label })}
@@ -364,9 +354,10 @@ function Form() {
 
       <label htmlFor="department">Department</label>
       <Select
-        options={options}
+        inputId="department"
+        options={department}
         className="select"
-        defaultValue={options[0]}
+        defaultValue={department[0]}
         onChange={(e) => setEmployee({ ...employee, department: e.value })}
       />
 
