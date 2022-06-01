@@ -8,6 +8,7 @@ function EmployeesList() {
     <div className="container">
       <Header title="Current Employees" />
       <Link to="/">Home</Link>
+      {/* <EmployeesTable /> */}
     </div>
   );
 }
