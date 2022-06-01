@@ -6,9 +6,7 @@ function Header({ title }) {
   const getUrl = () => {
     const url = window.location.pathname;
     const path = url.split('/');
-    const currentPath = path[path.length - 1];
-
-    return currentPath;
+    return path[path.length - 1];
   };
 
   console.log(getUrl());

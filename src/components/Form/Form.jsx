@@ -264,16 +264,8 @@ function Form() {
     },
   ];
 
-  /**
-   * It takes a date object, sets the time to noon, and returns a string of the date in YYYY-MM-DD
-   * format
-   * @returns The date in ISO format.
-   */
-
-  function saveEmployee() {}
-
   return (
-    <form className="formGroup" onSubmit={saveEmployee}>
+    <form className="formGroup">
       <label htmlFor="firstName">First Name</label>
       <input
         type="text"
