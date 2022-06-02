@@ -1,0 +1,84 @@
+label,
+input {
+  color: $color-1;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px $color-4 inset;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70vh;
+}
+
+.formControl {
+  background-color: $color-4;
+  height: 38px;
+  font: inherit;
+  padding: 0 10px;
+  border: 2px inset $color-2;
+}
+
+.datePicker {
+  background-color: $color-4;
+  height: 38px;
+  border: 2px inset $color-2;
+}
+
+.address {
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border: 2px inset $color-2;
+  color: $color-1;
+}
+
+.inputStateHidden {
+  height: 1px;
+  border: 0;
+  color: transparent;
+}
+
+.inputStateHidden:focus {
+  outline: 0;
+}
+
+.css-1s2u09g-control,
+.css-1pahdxg-control {
+  background-color: $color-4 !important;
+  border: 2px inset $color-2 !important;
+}
+
+.react-date-picker__wrapper {
+  border: none !important;
+}
+
+.css-26l3qy-menu,
+.css-1w9j89e-menu {
+  background-color: $color-4 !important;
+  border: 2px inset $color-2 !important;
+}
+
+.saveButton {
+  background-color: $color-3;
+  border: 2px inset $color-2;
+  color: $color-2;
+  font-weight: bold;
+  font-size: 14px;
+  height: 38px;
+  padding: 0 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.saveButton:hover {
+  background-color: $color-2;
+  border: 2px inset $color-2;
+  color: $color-3;
+  transition: all 0.3s ease-in-out;
+}

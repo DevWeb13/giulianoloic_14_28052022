@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../components/Header/Header';
 import Form from '../../components/Form/Form';
 
-function SignUp() {
+function Home() {
   return (
     <div className="container">
       <Header title="HRnet" />
@@ -13,4 +13,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Home;

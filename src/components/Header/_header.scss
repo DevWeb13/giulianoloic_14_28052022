@@ -26,21 +26,28 @@ h1::before {
   text-decoration: none;
   font-size: 1.3rem;
   font-weight: bold;
-  width: 200px;
+  width: 215px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $color-3;
+  border: 2px inset $color-2;
   color: $color-2;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .linkToHome {
-  width: 160px;
+  width: 180px;
   font-size: 2rem;
 }
 
 .linkToEmployeesList:hover,
 .linkToHome:hover {
-  color: $color-1;
+  background-color: $color-2;
+  // border: 2px inset $color-2;
+  color: $color-3;
+  transition: all 0.3s ease-in-out;
 }
 
 .linkToEmployeesList::after {
