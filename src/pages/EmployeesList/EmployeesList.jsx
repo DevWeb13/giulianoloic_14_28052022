@@ -1,13 +1,13 @@
 import React from 'react';
+import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
 import Header from '../../components/Header/Header';
-// import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
 
 function EmployeesList() {
   return (
     <div className="container">
       <Header title="Current Employees" />
 
-      {/* <EmployeesTable /> */}
+      <EmployeesTable />
     </div>
   );
 }
