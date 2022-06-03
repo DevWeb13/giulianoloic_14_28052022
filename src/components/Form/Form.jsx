@@ -24,7 +24,7 @@ function Form() {
     { value: 'legal', label: 'Legal' },
   ];
 
-  function checkAndSaveData(data) {
+  function checkAndSaveData() {
     console.log('Saved Employee');
   }
 
@@ -35,7 +35,7 @@ function Form() {
       onSubmit={(e) => {
         console.log(e);
         e.preventDefault();
-        checkAndSaveData(employee);
+        checkAndSaveData();
       }}
     >
       <label htmlFor="firstName">First Name</label>

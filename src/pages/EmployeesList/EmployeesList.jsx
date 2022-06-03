@@ -1,5 +1,5 @@
 import React from 'react';
-import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
+// import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
 import Header from '../../components/Header/Header';
 
 function EmployeesList() {
@@ -7,7 +7,7 @@ function EmployeesList() {
     <div className="container">
       <Header title="Current Employees" />
 
-      <EmployeesTable />
+      {/* <EmployeesTable /> */}
     </div>
   );
 }
