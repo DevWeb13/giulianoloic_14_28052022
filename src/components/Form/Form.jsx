@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-date-picker';
 import Select from 'react-select';
+import propTypes from 'prop-types';
 import states from '../../data/states';
 
-function Form() {
+function Form({ employees, setEmployees }) {
   const [employee, setEmployee] = useState({
     firstName: '',
     lastName: '',
@@ -25,7 +26,40 @@ function Form() {
   ];
 
   function checkAndSaveData() {
+    if (
+      employee.firstName &&
+      employee.lastName &&
+      employee.dateOfBirth &&
+      employee.startDate &&
+      employee.street &&
+      employee.city &&
+      employee.state &&
+      employee.zipCode &&
+      employee.department
+    ) {
+      setEmployees([...employees, employee]);
+      setEmployee({
+        firstName: '',
+        lastName: '',
+        dateOfBirth: null,
+        startDate: null,
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        department: 'sales',
+      });
+    }
     console.log('Saved Employee');
+  }
+
+  function formatDates() {
+    const dateOfBirth = new Date(employee.dateOfBirth);
+    const formattedDateOfBirth = dateOfBirth.toISOString().substring(0, 10);
+    employee.dateOfBirth = formattedDateOfBirth;
+    const startDate = new Date(employee.startDate);
+    const formattedStartDate = startDate.toISOString().substring(0, 10);
+    employee.startDate = formattedStartDate;
   }
 
   return (
@@ -33,8 +67,8 @@ function Form() {
       className="formGroup"
       id="form"
       onSubmit={(e) => {
-        console.log(e);
         e.preventDefault();
+        formatDates();
         checkAndSaveData();
       }}
     >
@@ -49,6 +83,7 @@ function Form() {
         required
         minLength={2}
         maxLength={20}
+        value={employee.firstName}
       />
 
       <label htmlFor="lastName">Last Name</label>
@@ -60,6 +95,7 @@ function Form() {
         required
         minLength={2}
         maxLength={20}
+        value={employee.lastName}
       />
 
       <label htmlFor="dateOfBirth">Date of Birth</label>
@@ -108,6 +144,7 @@ function Form() {
           required
           minLength={2}
           maxLength={20}
+          value={employee.street}
         />
 
         <label htmlFor="city">City</label>
@@ -119,6 +156,7 @@ function Form() {
           required
           minLength={2}
           maxLength={20}
+          value={employee.city}
         />
 
         <label htmlFor="state">State</label>
@@ -131,6 +169,8 @@ function Form() {
           onChange={(e) => setEmployee({ ...employee, state: e.label })}
           form="form"
           menuPlacement="auto"
+          isClearable
+          value={{ label: employee.state, value: employee.state }}
         />
         <input
           type="text"
@@ -153,6 +193,7 @@ function Form() {
             setEmployee({ ...employee, zipCode: e.target.value })
           }
           required
+          value={employee.zipCode}
         />
       </fieldset>
 
@@ -173,5 +214,10 @@ function Form() {
     </form>
   );
 }
+
+Form.propTypes = {
+  employees: propTypes.arrayOf(propTypes.objectOf(propTypes.string)).isRequired,
+  setEmployees: propTypes.func.isRequired,
+};
 
 export default Form;
