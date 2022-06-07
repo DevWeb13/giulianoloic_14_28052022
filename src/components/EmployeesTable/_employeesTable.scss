@@ -1,0 +1,48 @@
+.light {
+  background-color: lighten($color-4, 10%);
+}
+
+.light:hover {
+  background-color: $color-4 !important;
+}
+
+.lightBold {
+  background-color: $color-4 !important;
+}
+
+.light:hover > .lightBold {
+  background-color: darken($color-4, 10%) !important;
+}
+
+.dark {
+  background-color: lighten($color-5, 10%) !important;
+}
+
+.dark:hover {
+  background-color: $color-5 !important;
+}
+
+.darkBold {
+  background-color: $color-5 !important;
+}
+
+.dark:hover > .darkBold {
+  background-color: darken($color-5, 10%) !important;
+}
+
+thead {
+  background-color: darken($color-3, 10%);
+  border: 5px solid black !important;
+}
+
+.fas {
+  position: absolute;
+}
+
+.paginate_button {
+  background-color: darken($color-3, 10%);
+}
+
+.paginate_button:hover {
+  background-color: darken($color-3, 20%);
+}

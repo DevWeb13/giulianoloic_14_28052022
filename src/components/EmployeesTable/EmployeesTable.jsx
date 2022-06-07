@@ -1,6 +1,6 @@
 import React from 'react';
 import { DataTableReact } from 'devweb13-libraries-react';
-import propTypes from 'prop-types';
+import propTypes, { oneOfType } from 'prop-types';
 
 function EmployeesTable({ employees }) {
   return (
@@ -11,7 +11,9 @@ function EmployeesTable({ employees }) {
 }
 
 EmployeesTable.propTypes = {
-  employees: propTypes.arrayOf(propTypes.objectOf(propTypes.string)).isRequired,
+  employees: propTypes.arrayOf(
+    propTypes.objectOf(oneOfType([propTypes.string, propTypes.number])),
+  ).isRequired,
 };
 
 export default EmployeesTable;

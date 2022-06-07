@@ -7,10 +7,14 @@ input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px $color-4 inset;
 }
 
+.label {
+  margin: 0;
+}
+
 .formGroup {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 70vh;
 }
 

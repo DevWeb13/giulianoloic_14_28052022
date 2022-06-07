@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import propTypes, { oneOfType } from 'prop-types';
 import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
 import Header from '../../components/Header/Header';
 
@@ -14,7 +14,9 @@ function EmployeesList({ employees }) {
 }
 
 EmployeesList.propTypes = {
-  employees: propTypes.arrayOf(propTypes.objectOf(propTypes.string)).isRequired,
+  employees: propTypes.arrayOf(
+    propTypes.objectOf(oneOfType([propTypes.string, propTypes.number])),
+  ).isRequired,
 };
 
 export default EmployeesList;

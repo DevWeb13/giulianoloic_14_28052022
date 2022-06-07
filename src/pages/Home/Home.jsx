@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import propTypes, { oneOfType } from 'prop-types';
 import Header from '../../components/Header/Header';
 import Form from '../../components/Form/Form';
 
@@ -15,7 +15,9 @@ function Home({ employees, setEmployees }) {
 }
 
 Home.propTypes = {
-  employees: propTypes.arrayOf(propTypes.objectOf(propTypes.string)).isRequired,
+  employees: propTypes.arrayOf(
+    propTypes.objectOf(oneOfType([propTypes.string, propTypes.number])),
+  ).isRequired,
   setEmployees: propTypes.func.isRequired,
 };
 

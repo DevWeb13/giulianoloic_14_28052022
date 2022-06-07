@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-date-picker';
 import Select from 'react-select';
-import propTypes from 'prop-types';
+import propTypes, { oneOfType } from 'prop-types';
 import states from '../../data/states';
 
 function Form({ employees, setEmployees }) {
@@ -72,7 +72,9 @@ function Form({ employees, setEmployees }) {
         checkAndSaveData();
       }}
     >
-      <label htmlFor="firstName">First Name</label>
+      <label className="label" htmlFor="firstName">
+        First Name
+      </label>
       <input
         type="text"
         className="formControl"
@@ -86,7 +88,9 @@ function Form({ employees, setEmployees }) {
         value={employee.firstName}
       />
 
-      <label htmlFor="lastName">Last Name</label>
+      <label className="label" htmlFor="lastName">
+        Last Name
+      </label>
       <input
         type="text"
         className="formControl"
@@ -98,7 +102,9 @@ function Form({ employees, setEmployees }) {
         value={employee.lastName}
       />
 
-      <label htmlFor="dateOfBirth">Date of Birth</label>
+      <label className="label" htmlFor="dateOfBirth">
+        Date of Birth
+      </label>
       <DatePicker
         name="dateOfBirth"
         defaultValue={new Date()}
@@ -116,7 +122,9 @@ function Form({ employees, setEmployees }) {
         required
       />
 
-      <label htmlFor="startDate">Start Date</label>
+      <label className="label" htmlFor="startDate">
+        Start Date
+      </label>
 
       <DatePicker
         name="startDate"
@@ -135,7 +143,9 @@ function Form({ employees, setEmployees }) {
       <fieldset className="address">
         <legend>Address</legend>
 
-        <label htmlFor="street">Street</label>
+        <label className="label" htmlFor="street">
+          Street
+        </label>
         <input
           type="text"
           className="formControl"
@@ -147,7 +157,9 @@ function Form({ employees, setEmployees }) {
           value={employee.street}
         />
 
-        <label htmlFor="city">City</label>
+        <label className="label" htmlFor="city">
+          City
+        </label>
         <input
           type="text"
           className="formControl"
@@ -159,7 +171,9 @@ function Form({ employees, setEmployees }) {
           value={employee.city}
         />
 
-        <label htmlFor="state">State</label>
+        <label className="label" htmlFor="state">
+          State
+        </label>
 
         <Select
           name="state"
@@ -181,7 +195,9 @@ function Form({ employees, setEmployees }) {
           required
         />
 
-        <label htmlFor="zipCode">Zip Code</label>
+        <label className="label" htmlFor="zipCode">
+          Zip Code
+        </label>
         <input
           id="zipCode"
           name="zipCode"
@@ -197,7 +213,9 @@ function Form({ employees, setEmployees }) {
         />
       </fieldset>
 
-      <label htmlFor="department">Department</label>
+      <label className="label" htmlFor="department">
+        Department
+      </label>
       <Select
         name="department"
         inputId="department"
@@ -216,7 +234,9 @@ function Form({ employees, setEmployees }) {
 }
 
 Form.propTypes = {
-  employees: propTypes.arrayOf(propTypes.objectOf(propTypes.string)).isRequired,
+  employees: propTypes.arrayOf(
+    propTypes.objectOf(oneOfType([propTypes.string, propTypes.number])),
+  ).isRequired,
   setEmployees: propTypes.func.isRequired,
 };
 
