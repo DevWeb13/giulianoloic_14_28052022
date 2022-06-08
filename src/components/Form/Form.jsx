@@ -4,8 +4,9 @@ import Select from 'react-select';
 import propTypes, { oneOfType } from 'prop-types';
 import states from '../../data/states';
 
-function Form({ employees, setEmployees }) {
+function Form({ employees, setEmployees, setIsOpen }) {
   const [employee, setEmployee] = useState({
+    id: employees.length + 1,
     firstName: '',
     lastName: '',
     dateOfBirth: null,
@@ -39,6 +40,7 @@ function Form({ employees, setEmployees }) {
     ) {
       setEmployees([...employees, employee]);
       setEmployee({
+        id: employees.length + 1,
         firstName: '',
         lastName: '',
         dateOfBirth: null,
@@ -70,6 +72,7 @@ function Form({ employees, setEmployees }) {
         e.preventDefault();
         formatDates();
         checkAndSaveData();
+        setIsOpen(true);
       }}
     >
       <label className="label" htmlFor="firstName">
@@ -238,6 +241,7 @@ Form.propTypes = {
     propTypes.objectOf(oneOfType([propTypes.string, propTypes.number])),
   ).isRequired,
   setEmployees: propTypes.func.isRequired,
+  setIsOpen: propTypes.func.isRequired,
 };
 
 export default Form;
