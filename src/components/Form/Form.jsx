@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-date-picker';
 import Select from 'react-select';
 import propTypes, { oneOfType } from 'prop-types';
-import states from '../../data/states';
+import states from '../../data/states.json';
+import department from '../../data/department.json';
 
 function Form({ employees, setEmployees, setIsOpen }) {
   const [employee, setEmployee] = useState({
@@ -15,45 +16,8 @@ function Form({ employees, setEmployees, setIsOpen }) {
     city: '',
     state: '',
     zipCode: '',
-    department: 'sales',
+    department: 'Sales',
   });
-
-  const department = [
-    { value: 'sales', label: 'Sales' },
-    { value: 'marketing', label: 'Marketing' },
-    { value: 'engineering', label: 'Engineering' },
-    { value: 'humanResources', label: 'Human Resources' },
-    { value: 'legal', label: 'Legal' },
-  ];
-
-  function checkAndSaveData() {
-    if (
-      employee.firstName &&
-      employee.lastName &&
-      employee.dateOfBirth &&
-      employee.startDate &&
-      employee.street &&
-      employee.city &&
-      employee.state &&
-      employee.zipCode &&
-      employee.department
-    ) {
-      setEmployees([...employees, employee]);
-      setEmployee({
-        id: employees.length + 1,
-        firstName: '',
-        lastName: '',
-        dateOfBirth: null,
-        startDate: null,
-        street: '',
-        city: '',
-        state: '',
-        zipCode: '',
-        department: 'sales',
-      });
-    }
-    console.log('Saved Employee');
-  }
 
   function formatDates() {
     const dateOfBirth = new Date(employee.dateOfBirth);
@@ -64,15 +28,68 @@ function Form({ employees, setEmployees, setIsOpen }) {
     employee.startDate = formattedStartDate;
   }
 
+  function SaveFormatAndReinitData(e) {
+    const { id } = employee;
+    e.preventDefault();
+
+    formatDates();
+    console.log(employee);
+    console.log(employees);
+
+    employees.push(employee);
+
+    // setEmployees([...employees, employee]);
+
+    setEmployee({
+      id: id + 1,
+      firstName: '',
+      lastName: '',
+      dateOfBirth: null,
+      startDate: null,
+      street: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      department: 'Sales',
+    });
+
+    setIsOpen(true);
+  }
+
+  useEffect(() => {
+    setEmployee({
+      id: employees.length + 1,
+      firstName: '',
+      lastName: '',
+      dateOfBirth: null,
+      startDate: null,
+      street: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      department: 'Sales',
+    });
+  }, [employees]);
+
+  // function saveInBdd(e) {
+  //   e.preventDefault();
+
+  //   formatDates();
+
+  //   setEmployees([...employees, employee]);
+
+  //   pushEmployee(employee);
+
+  //   setIsOpen(true);
+  // }
+
   return (
     <form
       className="formGroup"
       id="form"
       onSubmit={(e) => {
-        e.preventDefault();
-        formatDates();
-        checkAndSaveData();
-        setIsOpen(true);
+        SaveFormatAndReinitData(e);
+        // saveInBdd(e);
       }}
     >
       <label className="label" htmlFor="firstName">
@@ -181,7 +198,7 @@ function Form({ employees, setEmployees, setIsOpen }) {
         <Select
           name="state"
           inputId="state"
-          options={states}
+          options={states.states}
           className="select"
           onChange={(e) => setEmployee({ ...employee, state: e.label })}
           form="form"
@@ -222,9 +239,9 @@ function Form({ employees, setEmployees, setIsOpen }) {
       <Select
         name="department"
         inputId="department"
-        options={department}
+        options={department.department}
         className="select"
-        defaultValue={department[0]}
+        defaultValue={department.department[0]}
         onChange={(e) => setEmployee({ ...employee, department: e.value })}
         menuPlacement="auto"
       />

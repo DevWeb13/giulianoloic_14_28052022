@@ -3,6 +3,7 @@ import { DataTableReact } from 'devweb13-libraries-react';
 import propTypes, { oneOfType } from 'prop-types';
 
 function EmployeesTable({ employees }) {
+  console.log(employees);
   return (
     <div>
       <DataTableReact employees={employees} />

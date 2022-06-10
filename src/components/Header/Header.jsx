@@ -9,7 +9,6 @@ function Header({ title }) {
     return path[path.length - 1];
   };
 
-  console.log(getUrl());
   return getUrl() === '' ? (
     <header>
       <h1>{title}</h1>
