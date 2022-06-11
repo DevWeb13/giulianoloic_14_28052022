@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import EmployeesList from './pages/EmployeesList/EmployeesList';
@@ -6,11 +6,11 @@ import EmployeesList from './pages/EmployeesList/EmployeesList';
 import data from './data/employees.json';
 
 function App() {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState(data.employees);
 
-  useEffect(() => {
-    setEmployees(data.employees);
-  }, []);
+  // useEffect(() => {
+  //   setEmployees();
+  // }, []);
 
   return (
     <Router>

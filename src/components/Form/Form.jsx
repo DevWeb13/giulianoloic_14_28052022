@@ -19,41 +19,8 @@ function Form({ employees, setEmployees, setIsOpen }) {
     department: 'Sales',
   });
 
-  function formatDates() {
-    const dateOfBirth = new Date(employee.dateOfBirth);
-    const formattedDateOfBirth = dateOfBirth.toISOString().substring(0, 10);
-    employee.dateOfBirth = formattedDateOfBirth;
-    const startDate = new Date(employee.startDate);
-    const formattedStartDate = startDate.toISOString().substring(0, 10);
-    employee.startDate = formattedStartDate;
-  }
-
-  function SaveFormatAndReinitData(e) {
-    const { id } = employee;
-    e.preventDefault();
-
-    formatDates();
-    console.log(employee);
-    console.log(employees);
-
-    employees.push(employee);
-
-    // setEmployees([...employees, employee]);
-
-    setEmployee({
-      id: id + 1,
-      firstName: '',
-      lastName: '',
-      dateOfBirth: null,
-      startDate: null,
-      street: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      department: 'Sales',
-    });
-
-    setIsOpen(true);
+  function formatDates(date) {
+    return date.toISOString().substring(0, 10);
   }
 
   useEffect(() => {
@@ -71,25 +38,21 @@ function Form({ employees, setEmployees, setIsOpen }) {
     });
   }, [employees]);
 
-  // function saveInBdd(e) {
-  //   e.preventDefault();
-
-  //   formatDates();
-
-  //   setEmployees([...employees, employee]);
-
-  //   pushEmployee(employee);
-
-  //   setIsOpen(true);
-  // }
-
   return (
     <form
       className="formGroup"
       id="form"
       onSubmit={(e) => {
-        SaveFormatAndReinitData(e);
-        // saveInBdd(e);
+        e.preventDefault();
+        const formatDateOfBirth = formatDates(employee.dateOfBirth);
+        const formatStartDate = formatDates(employee.startDate);
+        const newEmployee = {
+          ...employee,
+          dateOfBirth: formatDateOfBirth,
+          startDate: formatStartDate,
+        };
+        setEmployees([...employees, newEmployee]);
+        setIsOpen(true);
       }}
     >
       <label className="label" htmlFor="firstName">
@@ -200,7 +163,13 @@ function Form({ employees, setEmployees, setIsOpen }) {
           inputId="state"
           options={states.states}
           className="select"
-          onChange={(e) => setEmployee({ ...employee, state: e.label })}
+          onChange={(e) => {
+            if (e === null) {
+              setEmployee({ ...employee, state: '' });
+              return;
+            }
+            setEmployee({ ...employee, state: e.label });
+          }}
           form="form"
           menuPlacement="auto"
           isClearable
@@ -242,8 +211,16 @@ function Form({ employees, setEmployees, setIsOpen }) {
         options={department.department}
         className="select"
         defaultValue={department.department[0]}
-        onChange={(e) => setEmployee({ ...employee, department: e.value })}
+        onChange={(e) => {
+          if (e === null) {
+            setEmployee({ ...employee, department: '' });
+            return;
+          }
+          setEmployee({ ...employee, department: e.value });
+        }}
+        form="form"
         menuPlacement="auto"
+        value={{ label: employee.department, value: employee.department }}
       />
 
       <button type="submit" name="submit" id="submit" className="saveButton">

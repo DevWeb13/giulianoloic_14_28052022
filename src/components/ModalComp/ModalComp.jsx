@@ -7,8 +7,10 @@ function ModalComp({ modalIsOpen, setIsOpen }) {
     <div>
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Minimal Modal Example"
+        contentLabel="Modal"
         ariaHideApp={false}
+        onRequestClose={() => setIsOpen(false)}
+        overlayClassName="overlay"
       >
         <div className="modalContent">
           <h2>Employees created!</h2>
