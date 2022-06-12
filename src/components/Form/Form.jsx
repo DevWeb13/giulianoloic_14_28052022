@@ -4,6 +4,7 @@ import Select from 'react-select';
 import propTypes, { oneOfType } from 'prop-types';
 import states from '../../data/states.json';
 import department from '../../data/department.json';
+import { postEmployee, getEmployeesList } from '../../utils/dataManager';
 
 function Form({ employees, setEmployees, setIsOpen }) {
   const [employee, setEmployee] = useState({
@@ -51,9 +52,18 @@ function Form({ employees, setEmployees, setIsOpen }) {
           dateOfBirth: formatDateOfBirth,
           startDate: formatStartDate,
         };
-        setEmployees([...employees, newEmployee]);
-        setIsOpen(true);
+        postEmployee(newEmployee).then((data) => {
+          console.log(data);
+          getEmployeesList().then((newList) => {
+            console.log(newList);
+
+            setEmployees(newList);
+            setIsOpen(true);
+          });
+          // setEmployees([...employees, data]);
+        });
       }}
+      // setEmployees([...employees, newEmployee]);
     >
       <label className="label" htmlFor="firstName">
         First Name

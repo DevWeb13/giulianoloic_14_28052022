@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import EmployeesList from './pages/EmployeesList/EmployeesList';
+import { getEmployeesList } from './utils/dataManager';
 
-import data from './data/employees.json';
+// import data from './data/employees.json';
 
 function App() {
-  const [employees, setEmployees] = useState(data.employees);
+  const [employees, setEmployees] = useState([]);
 
-  // useEffect(() => {
-  //   setEmployees();
-  // }, []);
+  useEffect(() => {
+    getEmployeesList().then((data) => {
+      console.log(data);
+
+      setEmployees(data);
+    });
+  }, []);
 
   return (
     <Router>
