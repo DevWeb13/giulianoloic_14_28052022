@@ -60,10 +60,8 @@ function Form({ employees, setEmployees, setIsOpen }) {
             setEmployees(newList);
             setIsOpen(true);
           });
-          // setEmployees([...employees, data]);
         });
       }}
-      // setEmployees([...employees, newEmployee]);
     >
       <label className="label" htmlFor="firstName">
         First Name

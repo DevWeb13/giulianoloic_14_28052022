@@ -4,8 +4,7 @@ async function getEmployeesList() {
       'Content-Type': 'application/json',
     },
   });
-  const employees = await response.json();
-  return employees;
+  return response.json();
 }
 
 /**
@@ -21,8 +20,7 @@ async function postEmployee(employee) {
     },
     body: JSON.stringify(employee),
   });
-  const newEmployee = await response.json();
-  return newEmployee;
+  return response.json();
 }
 
 export { getEmployeesList, postEmployee };

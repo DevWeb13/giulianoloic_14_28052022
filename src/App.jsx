@@ -4,8 +4,6 @@ import Home from './pages/Home/Home';
 import EmployeesList from './pages/EmployeesList/EmployeesList';
 import { getEmployeesList } from './utils/dataManager';
 
-// import data from './data/employees.json';
-
 function App() {
   const [employees, setEmployees] = useState([]);
 
