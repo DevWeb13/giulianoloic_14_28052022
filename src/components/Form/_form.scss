@@ -68,7 +68,7 @@ input:-webkit-autofill {
   border: 2px inset $color-2 !important;
 }
 
-.saveButton {
+.button {
   background-color: $color-3;
   border: 2px inset $color-2;
   color: $color-2;
@@ -80,7 +80,7 @@ input:-webkit-autofill {
   border-radius: 5px;
 }
 
-.saveButton:hover {
+.button:hover {
   background-color: $color-2;
   border: 2px inset $color-2;
   color: $color-3;

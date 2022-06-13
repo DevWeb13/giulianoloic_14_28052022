@@ -4,6 +4,12 @@ import Header from '../../components/Header/Header';
 import Form from '../../components/Form/Form';
 import ModalComp from '../../components/ModalComp/ModalComp';
 
+/**
+ * @param {object} props
+ * @param {array} props.employees - list of employees
+ * @param {object} props.setEmployees - function to set employees
+ * @return {import('react').ReactComponentElement} - React Home component element
+ */
 function Home({ employees, setEmployees }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   return (

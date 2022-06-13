@@ -23,4 +23,20 @@ async function postEmployee(employee) {
   return response.json();
 }
 
-export { getEmployeesList, postEmployee };
+/**
+ * It sends a DELETE request to the server, with the id of the employee to delete
+ * @param {number} id - The id of the employee to delete.
+ * @returns The response from the server.
+ */
+async function deleteEmployee(id) {
+  const response = await fetch('http://localhost:5000/employees/', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id }),
+  });
+  return response.json();
+}
+
+export { getEmployeesList, postEmployee, deleteEmployee };

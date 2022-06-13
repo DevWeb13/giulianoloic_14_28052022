@@ -9,8 +9,6 @@ function App() {
 
   useEffect(() => {
     getEmployeesList().then((data) => {
-      console.log(data);
-
       setEmployees(data);
     });
   }, []);
@@ -24,7 +22,9 @@ function App() {
         />
         <Route
           path="/employees-list"
-          element={<EmployeesList employees={employees} />}
+          element={
+            <EmployeesList employees={employees} setEmployees={setEmployees} />
+          }
         />
       </Routes>
     </Router>

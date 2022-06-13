@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+/**
+ * @param {object} props
+ * @param {string} props.title - title of the header
+ * @returns {import('react').ReactComponentElement} - React Header component element
+ */
 function Header({ title }) {
   const getUrl = () => {
     const url = window.location.pathname;

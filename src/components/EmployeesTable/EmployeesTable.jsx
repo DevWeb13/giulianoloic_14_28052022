@@ -2,8 +2,12 @@ import React from 'react';
 import { DataTableReact } from 'devweb13-libraries-react';
 import propTypes, { oneOfType } from 'prop-types';
 
+/**
+ * @param {object} props
+ * @param {array} props.employees - list of employees
+ * @return {import('react').ReactComponentElement} - React EmployeesTable component element
+ */
 function EmployeesTable({ employees }) {
-  console.log(employees);
   return (
     <div>
       <DataTableReact employees={employees} />

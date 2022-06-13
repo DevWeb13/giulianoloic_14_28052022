@@ -5,10 +5,18 @@ import propTypes, { oneOfType } from 'prop-types';
 import states from '../../data/states.json';
 import department from '../../data/department.json';
 import { postEmployee, getEmployeesList } from '../../utils/dataManager';
+import { formatDates, searchIdMax } from '../../utils/helpers';
 
+/**
+ * @param {object} props
+ * @param {array} props.employees - list of employees
+ * @param {object} props.setEmployees - function to set employees
+ * @param {object} props.setIsOpen - function to set modalIsOpen
+ * @return {import('react').ReactComponentElement} - React Form component element
+ */
 function Form({ employees, setEmployees, setIsOpen }) {
   const [employee, setEmployee] = useState({
-    id: employees.length + 1,
+    id: searchIdMax(employees),
     firstName: '',
     lastName: '',
     dateOfBirth: null,
@@ -20,13 +28,9 @@ function Form({ employees, setEmployees, setIsOpen }) {
     department: 'Sales',
   });
 
-  function formatDates(date) {
-    return date.toISOString().substring(0, 10);
-  }
-
   useEffect(() => {
     setEmployee({
-      id: employees.length + 1,
+      id: searchIdMax(employees),
       firstName: '',
       lastName: '',
       dateOfBirth: null,
@@ -45,22 +49,31 @@ function Form({ employees, setEmployees, setIsOpen }) {
       id="form"
       onSubmit={(e) => {
         e.preventDefault();
-        const formatDateOfBirth = formatDates(employee.dateOfBirth);
-        const formatStartDate = formatDates(employee.startDate);
-        const newEmployee = {
-          ...employee,
-          dateOfBirth: formatDateOfBirth,
-          startDate: formatStartDate,
-        };
-        postEmployee(newEmployee).then((data) => {
-          console.log(data);
-          getEmployeesList().then((newList) => {
-            console.log(newList);
-
-            setEmployees(newList);
-            setIsOpen(true);
+        if (
+          employee.firstName &&
+          employee.lastName &&
+          employee.dateOfBirth &&
+          employee.startDate &&
+          employee.street &&
+          employee.city &&
+          employee.state &&
+          employee.zipCode &&
+          employee.department
+        ) {
+          const formatDateOfBirth = formatDates(employee.dateOfBirth);
+          const formatStartDate = formatDates(employee.startDate);
+          const newEmployee = {
+            ...employee,
+            dateOfBirth: formatDateOfBirth,
+            startDate: formatStartDate,
+          };
+          postEmployee(newEmployee).then(() => {
+            getEmployeesList().then((newList) => {
+              setEmployees(newList);
+              setIsOpen(true);
+            });
           });
-        });
+        }
       }}
     >
       <label className="label" htmlFor="firstName">
@@ -231,7 +244,7 @@ function Form({ employees, setEmployees, setIsOpen }) {
         value={{ label: employee.department, value: employee.department }}
       />
 
-      <button type="submit" name="submit" id="submit" className="saveButton">
+      <button type="submit" name="submit" id="submit" className="button">
         Save
       </button>
     </form>
