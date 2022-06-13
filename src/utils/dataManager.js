@@ -2,7 +2,6 @@ async function getEmployeesList() {
   const response = await fetch('http://localhost:5000/employees', {
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
   });
   const employees = await response.json();
@@ -19,7 +18,6 @@ async function postEmployee(employee) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify(employee),
   });
