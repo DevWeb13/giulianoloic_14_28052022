@@ -46,3 +46,12 @@ thead {
 .paginate_button:hover {
   background-color: darken($color-3, 20%);
 }
+
+.dataTable {
+  border: 1px solid $color-1;
+}
+
+th,
+td {
+  border: 1px solid $color-2;
+}
