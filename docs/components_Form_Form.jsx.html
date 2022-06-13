@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Form/Form.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Form/Form.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-date-picker';
 import Select from 'react-select';
 import propTypes, { oneOfType } from 'prop-types';
@@ -44,20 +72,20 @@ function Form({ employees, setEmployees, setIsOpen }) {
   }, [employees]);
 
   return (
-    <form
+    &lt;form
       className="formGroup"
       id="form"
       onSubmit={(e) => {
         e.preventDefault();
         if (
-          employee.firstName &&
-          employee.lastName &&
-          employee.dateOfBirth &&
-          employee.startDate &&
-          employee.street &&
-          employee.city &&
-          employee.state &&
-          employee.zipCode &&
+          employee.firstName &amp;&amp;
+          employee.lastName &amp;&amp;
+          employee.dateOfBirth &amp;&amp;
+          employee.startDate &amp;&amp;
+          employee.street &amp;&amp;
+          employee.city &amp;&amp;
+          employee.state &amp;&amp;
+          employee.zipCode &amp;&amp;
           employee.department
         ) {
           const formatDateOfBirth = formatDates(employee.dateOfBirth);
@@ -76,10 +104,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
         }
       }}
     >
-      <label className="label" htmlFor="firstName">
+      &lt;label className="label" htmlFor="firstName">
         First Name
-      </label>
-      <input
+      &lt;/label>
+      &lt;input
         type="text"
         className="formControl"
         id="firstName"
@@ -92,10 +120,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
         value={employee.firstName}
       />
 
-      <label className="label" htmlFor="lastName">
+      &lt;label className="label" htmlFor="lastName">
         Last Name
-      </label>
-      <input
+      &lt;/label>
+      &lt;input
         type="text"
         className="formControl"
         id="lastName"
@@ -106,10 +134,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
         value={employee.lastName}
       />
 
-      <label className="label" htmlFor="dateOfBirth">
+      &lt;label className="label" htmlFor="dateOfBirth">
         Date of Birth
-      </label>
-      <DatePicker
+      &lt;/label>
+      &lt;DatePicker
         name="dateOfBirth"
         defaultValue={new Date()}
         maxDate={
@@ -126,11 +154,11 @@ function Form({ employees, setEmployees, setIsOpen }) {
         required
       />
 
-      <label className="label" htmlFor="startDate">
+      &lt;label className="label" htmlFor="startDate">
         Start Date
-      </label>
+      &lt;/label>
 
-      <DatePicker
+      &lt;DatePicker
         name="startDate"
         maxDate={new Date()}
         className="datePicker"
@@ -144,13 +172,13 @@ function Form({ employees, setEmployees, setIsOpen }) {
         required
       />
 
-      <fieldset className="address">
-        <legend>Address</legend>
+      &lt;fieldset className="address">
+        &lt;legend>Address&lt;/legend>
 
-        <label className="label" htmlFor="street">
+        &lt;label className="label" htmlFor="street">
           Street
-        </label>
-        <input
+        &lt;/label>
+        &lt;input
           type="text"
           className="formControl"
           id="street"
@@ -161,10 +189,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
           value={employee.street}
         />
 
-        <label className="label" htmlFor="city">
+        &lt;label className="label" htmlFor="city">
           City
-        </label>
-        <input
+        &lt;/label>
+        &lt;input
           type="text"
           className="formControl"
           id="city"
@@ -175,11 +203,11 @@ function Form({ employees, setEmployees, setIsOpen }) {
           value={employee.city}
         />
 
-        <label className="label" htmlFor="state">
+        &lt;label className="label" htmlFor="state">
           State
-        </label>
+        &lt;/label>
 
-        <Select
+        &lt;Select
           name="state"
           inputId="state"
           options={states.states}
@@ -196,7 +224,7 @@ function Form({ employees, setEmployees, setIsOpen }) {
           isClearable
           value={{ label: employee.state, value: employee.state }}
         />
-        <input
+        &lt;input
           type="text"
           className="inputStateHidden"
           id="state"
@@ -205,10 +233,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
           required
         />
 
-        <label className="label" htmlFor="zipCode">
+        &lt;label className="label" htmlFor="zipCode">
           Zip Code
-        </label>
-        <input
+        &lt;/label>
+        &lt;input
           id="zipCode"
           name="zipCode"
           type="number"
@@ -221,12 +249,12 @@ function Form({ employees, setEmployees, setIsOpen }) {
           required
           value={employee.zipCode}
         />
-      </fieldset>
+      &lt;/fieldset>
 
-      <label className="label" htmlFor="department">
+      &lt;label className="label" htmlFor="department">
         Department
-      </label>
-      <Select
+      &lt;/label>
+      &lt;Select
         name="department"
         inputId="department"
         options={department.department}
@@ -244,10 +272,10 @@ function Form({ employees, setEmployees, setIsOpen }) {
         value={{ label: employee.department, value: employee.department }}
       />
 
-      <button type="submit" name="submit" id="submit" className="button">
+      &lt;button type="submit" name="submit" id="submit" className="button">
         Save
-      </button>
-    </form>
+      &lt;/button>
+    &lt;/form>
   );
 }
 
@@ -260,3 +288,26 @@ Form.propTypes = {
 };
 
 export default Form;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DeleteEmployee">DeleteEmployee</a></li><li><a href="global.html#deleteEmployee">deleteEmployee</a></li><li><a href="global.html#EmployeesList">EmployeesList</a></li><li><a href="global.html#EmployeesTable">EmployeesTable</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#formatDates">formatDates</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#ModalComp">ModalComp</a></li><li><a href="global.html#postEmployee">postEmployee</a></li><li><a href="global.html#searchIdMax">searchIdMax</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Jun 13 2022 17:42:56 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

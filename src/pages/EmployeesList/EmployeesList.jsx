@@ -8,7 +8,7 @@ import DeleteEmployee from '../../components/DeleteEmployee/DeleteEmployee';
  * @param {object} props
  * @param {array} props.employees - list of employees
  * @param {object} props.setEmployees - function to set employees
- * @return {import('react').ReactComponentElement} - React Home component element
+ * @return {React.ReactElement} - React Home component element
  */
 function EmployeesList({ employees, setEmployees }) {
   return (

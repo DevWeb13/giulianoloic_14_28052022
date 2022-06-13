@@ -5,7 +5,7 @@ import propTypes, { oneOfType } from 'prop-types';
 /**
  * @param {object} props
  * @param {array} props.employees - list of employees
- * @return {import('react').ReactComponentElement} - React EmployeesTable component element
+ * @return {React.ReactElement} - React EmployeesTable component element
  */
 function EmployeesTable({ employees }) {
   return (

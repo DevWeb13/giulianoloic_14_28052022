@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 /**
  * @param {object} props
  * @param {string} props.title - title of the header
- * @returns {import('react').ReactComponentElement} - React Header component element
+ * @returns {React.ReactElement} - React Header component element
  */
 function Header({ title }) {
   const getUrl = () => {

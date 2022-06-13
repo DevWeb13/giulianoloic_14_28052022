@@ -6,7 +6,7 @@ import propTypes from 'prop-types';
  * @param {object} props
  * @param {boolean} props.modalIsOpen - boolean to determine if modal is open
  * @param {object} props.setIsOpen - function to set modalIsOpen
- * @return {import('react').ReactComponentElement} - React Modal component element
+ * @return {React.ReactElement} - React Modal component element
  */
 function ModalComp({ modalIsOpen, setIsOpen }) {
   return (
