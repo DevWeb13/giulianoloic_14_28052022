@@ -4,7 +4,7 @@
 
 > Employee Management Application.
 
-Create a web application to create or delete an employee and be able to view the list of employees in a table that can sort the data.
+Web application to create or delete an employee and be able to view the list of employees in a table that can sort the data.
 
 ## Project Realized By Giuliano Loic
 
