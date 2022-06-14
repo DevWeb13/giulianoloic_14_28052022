@@ -1,3 +1,88 @@
+![Logo of the project](https://github.com/DevWeb13/giulianoloic_14_28052022/blob/master/public/assets/logo.png)
+
+# Wealth Health
+
+> Employee Management Application.
+
+Create a web application to create or delete an employee and be able to view the list of employees in a table that can sort the data.
+
+## Project Realized By Giuliano Loic
+
+## Made With
+
+![JavaScript](https://img.shields.io/badge/Language-JS-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![SASS](https://img.shields.io/badge/style-SASS-ff69b4) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-black) ![fontawesome](https://img.shields.io/badge/Library-fontawesome-blueviolet) ![IDE](https://img.shields.io/badge/IDE-VsCode-blue) ![NODE](https://img.shields.io/badge/Node-v16.13.0-ff69b4) ![jsdoc](https://img.shields.io/badge/Library-jsdoc-blueviolet) 
+
+|                                                                                                              summary                                                                                                               |                                                                                                           score                                                                                                            |                                                                                                      to do                                                                                                      |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|              [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)              |  [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)  |  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)   |
+| [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022) | [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022) | [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022) |
+|                   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=bugs)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)                   |    [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)    |                                                                                                                                                                                                                 |
+|        [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_giulianoloic_14_28052022&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)        |                                                                                                                                                                                                                            |
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=DevWeb13_giulianoloic_14_28052022)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)
+
+*Two repositories are needed to enable the project to run:*
+
+
+## 1. BACK-END API
+
+You can get the API code here: <https://github.com/DevWeb13/server-P14->
+
+Please refer to the Readme.md documentation provided for installation and use.
+
+### URL/PORT
+
+The default URL used by the API is <http://localhost:5000>.
+
+&nbsp;
+
+## 2. FRONT-END
+
+The present repository contains this part of the project. Any package manager such as npm or yarn is required.
+
+* You have to clone the project locally with either/or :
+
+```bash
+# HTTPS
+ git clone https://github.com/DevWeb13/GiulianoLoic_13_21042022
+# SSH
+git clone git@github.com:DevWeb13/GiulianoLoic_13_21042022.git
+```
+
+* Then access inside your local repository and install dependencies using :
+
+```bash
+npm install
+```
+
+* Launch the application with :
+
+```bash
+ npm start
+ ```
+
+### Use the application
+
+You can make use of the credentials below to access the application.
+It is also possible to create a new user, but consider the transactions page shall not to be filled as this is a in-course developpemnt application.
+
+Tony Stark
+
+    Email: tony@stark.com
+    Password: password123
+
+Steve Rogers
+
+    Email: steve@rogers.com,
+    Password: password456
+
+### URL/PORT
+
+The default URL used by the application is <http://localhost:3000>.
+
+&nbsp;
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +153,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# [Site final](https://giulianoloic-13-21042022.vercel.app/)
+
+# [Documentation](https://devweb13.github.io/giulianoloic_13_21042022/)
