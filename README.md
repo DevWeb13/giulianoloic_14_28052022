@@ -40,13 +40,19 @@ The default URL used by the API is <http://localhost:5000>.
 
 The present repository contains this part of the project. Any package manager such as npm or yarn is required.
 
+
+
+
+### Use the application
+
+* Clone and connect a server API: <https://github.com/DevWeb13/server-P14->
 * You have to clone the project locally with either/or :
 
 ```bash
 # HTTPS
- git clone https://github.com/DevWeb13/GiulianoLoic_13_21042022
+git clone https://github.com/DevWeb13/giulianoloic_14_28052022.git
 # SSH
-git clone git@github.com:DevWeb13/GiulianoLoic_13_21042022.git
+git clone git@github.com:DevWeb13/giulianoloic_14_28052022.git
 ```
 
 * Then access inside your local repository and install dependencies using :
@@ -61,20 +67,6 @@ npm install
  npm start
  ```
 
-### Use the application
-
-You can make use of the credentials below to access the application.
-It is also possible to create a new user, but consider the transactions page shall not to be filled as this is a in-course developpemnt application.
-
-Tony Stark
-
-    Email: tony@stark.com
-    Password: password123
-
-Steve Rogers
-
-    Email: steve@rogers.com,
-    Password: password456
 
 ### URL/PORT
 
@@ -154,6 +146,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# [Site final](https://giulianoloic-13-21042022.vercel.app/)
+# [Site final](https://giulianoloic-14-28052022.vercel.app/)
 
-# [Documentation](https://devweb13.github.io/giulianoloic_13_21042022/)
+# [Documentation](https://devweb13.github.io/giulianoloic_14_28052022/)
