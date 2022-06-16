@@ -12,9 +12,10 @@ import { formatDates, searchIdMax } from '../../utils/helpers';
  * @param {array} props.employees - list of employees
  * @param {object} props.setEmployees - function to set employees
  * @param {object} props.setIsOpen - function to set modalIsOpen
+ * @param {object} props.setLoader - function to set loader
  * @return {React.ReactElement} - React Form component element
  */
-function Form({ employees, setEmployees, setIsOpen }) {
+function Form({ employees, setEmployees, setIsOpen, setLoader }) {
   const [employee, setEmployee] = useState({
     id: searchIdMax(employees),
     firstName: '',
@@ -49,6 +50,7 @@ function Form({ employees, setEmployees, setIsOpen }) {
       id="form"
       onSubmit={(e) => {
         e.preventDefault();
+        setLoader(true);
         if (
           employee.firstName &&
           employee.lastName &&
@@ -70,6 +72,7 @@ function Form({ employees, setEmployees, setIsOpen }) {
           postEmployee(newEmployee).then(() => {
             getEmployeesList().then((newList) => {
               setEmployees(newList);
+              setLoader(false);
               setIsOpen(true);
             });
           });
@@ -257,6 +260,7 @@ Form.propTypes = {
   ).isRequired,
   setEmployees: propTypes.func.isRequired,
   setIsOpen: propTypes.func.isRequired,
+  setLoader: propTypes.func.isRequired,
 };
 
 export default Form;

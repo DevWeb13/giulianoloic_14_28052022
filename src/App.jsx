@@ -6,10 +6,11 @@ import { getEmployeesList } from './utils/dataManager';
 
 function App() {
   const [employees, setEmployees] = useState([]);
-
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     getEmployeesList().then((data) => {
       setEmployees(data);
+      setLoader(false);
     });
   }, []);
 
@@ -18,12 +19,24 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home employees={employees} setEmployees={setEmployees} />}
+          element={
+            <Home
+              employees={employees}
+              setEmployees={setEmployees}
+              loader={loader}
+              setLoader={setLoader}
+            />
+          }
         />
         <Route
           path="/employees-list"
           element={
-            <EmployeesList employees={employees} setEmployees={setEmployees} />
+            <EmployeesList
+              employees={employees}
+              setEmployees={setEmployees}
+              loader={loader}
+              setLoader={setLoader}
+            />
           }
         />
       </Routes>
