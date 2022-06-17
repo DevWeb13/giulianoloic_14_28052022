@@ -229,6 +229,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>setLoader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to set loader</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -273,7 +296,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_DeleteEmployee_DeleteEmployee.jsx.html">components/DeleteEmployee/DeleteEmployee.jsx</a>, <a href="components_DeleteEmployee_DeleteEmployee.jsx.html#line11">line 11</a>
+        <a href="components_DeleteEmployee_DeleteEmployee.jsx.html">components/DeleteEmployee/DeleteEmployee.jsx</a>, <a href="components_DeleteEmployee_DeleteEmployee.jsx.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -333,7 +356,7 @@
     
 
     
-    <h4 class="name" id="deleteEmployee"><span class="type-signature">(async) </span>deleteEmployee<span class="signature">(id)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="deleteEmployee"><span class="type-signature">(async) </span>deleteEmployee<span class="signature">(id, employees)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
 
     
@@ -341,7 +364,7 @@
 
 
 <div class="description">
-    <p>It sends a DELETE request to the server, with the id of the employee to delete</p>
+    <p>It takes an id and an array of employees as arguments, and returns the deleted employee</p>
 </div>
 
 
@@ -393,7 +416,30 @@
 
             
 
-            <td class="description last"><p>The id of the employee to delete.</p></td>
+            <td class="description last"><p>The id of the employee to be deleted.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>employees</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the array of employees</p></td>
         </tr>
 
     
@@ -434,7 +480,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_dataManager.js.html">utils/dataManager.js</a>, <a href="utils_dataManager.js.html#line31">line 31</a>
+        <a href="utils_dataManager.js.html">utils/dataManager.js</a>, <a href="utils_dataManager.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -463,10 +509,24 @@
 
         
 <div class="param-desc">
-    <p>The response from the server.</p>
+    <ul>
+<li>The employee that was deleted.</li>
+</ul>
 </div>
 
 
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
 
     
 
@@ -605,6 +665,52 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>loader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>state of loader</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setLoader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to set loader</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -649,7 +755,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pages_EmployeesList_EmployeesList.jsx.html">pages/EmployeesList/EmployeesList.jsx</a>, <a href="pages_EmployeesList_EmployeesList.jsx.html#line13">line 13</a>
+        <a href="pages_EmployeesList_EmployeesList.jsx.html">pages/EmployeesList/EmployeesList.jsx</a>, <a href="pages_EmployeesList_EmployeesList.jsx.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -1063,6 +1169,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>setLoader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to set loader</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -1107,7 +1236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Form_Form.jsx.html">components/Form/Form.jsx</a>, <a href="components_Form_Form.jsx.html#line17">line 17</a>
+        <a href="components_Form_Form.jsx.html">components/Form/Form.jsx</a>, <a href="components_Form_Form.jsx.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -1309,6 +1438,165 @@
     <dd>
         
 <span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getEmployeesList"><span class="type-signature">(async) </span>getEmployeesList<span class="signature">(employees)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>It fetches the employees list from the server and returns it</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>employees</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The employees array that we're going to be updating.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="utils_dataManager.js.html">utils/dataManager.js</a>, <a href="utils_dataManager.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The employees list</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -1657,6 +1945,52 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>loader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>state of loader</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setLoader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function to set loader</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -1701,7 +2035,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pages_Home_Home.jsx.html">pages/Home/Home.jsx</a>, <a href="pages_Home_Home.jsx.html#line13">line 13</a>
+        <a href="pages_Home_Home.jsx.html">pages/Home/Home.jsx</a>, <a href="pages_Home_Home.jsx.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -2091,7 +2425,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="utils_dataManager.js.html">utils/dataManager.js</a>, <a href="utils_dataManager.js.html#line15">line 15</a>
+        <a href="utils_dataManager.js.html">utils/dataManager.js</a>, <a href="utils_dataManager.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -2318,13 +2652,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DeleteEmployee">DeleteEmployee</a></li><li><a href="global.html#deleteEmployee">deleteEmployee</a></li><li><a href="global.html#EmployeesList">EmployeesList</a></li><li><a href="global.html#EmployeesTable">EmployeesTable</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#formatDates">formatDates</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#ModalComp">ModalComp</a></li><li><a href="global.html#postEmployee">postEmployee</a></li><li><a href="global.html#searchIdMax">searchIdMax</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DeleteEmployee">DeleteEmployee</a></li><li><a href="global.html#deleteEmployee">deleteEmployee</a></li><li><a href="global.html#EmployeesList">EmployeesList</a></li><li><a href="global.html#EmployeesTable">EmployeesTable</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#formatDates">formatDates</a></li><li><a href="global.html#getEmployeesList">getEmployeesList</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#ModalComp">ModalComp</a></li><li><a href="global.html#postEmployee">postEmployee</a></li><li><a href="global.html#searchIdMax">searchIdMax</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Jun 14 2022 17:46:19 GMT+0200 (heure d’été d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Jun 17 2022 14:54:26 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

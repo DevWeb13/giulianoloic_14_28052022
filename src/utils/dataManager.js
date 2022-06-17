@@ -1,10 +1,20 @@
-async function getEmployeesList() {
-  const response = await fetch('http://localhost:5000/employees', {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  return response.json();
+/**
+ * It fetches the employees list from the server and returns it
+ * @param {array} employees - The employees array that we're going to be updating.
+ * @returns {Promise} The employees list
+ */
+async function getEmployeesList(employees) {
+  try {
+    const response = await fetch('http://localhost:5000/employees', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return employees;
+  }
 }
 
 /**
@@ -12,31 +22,42 @@ async function getEmployeesList() {
  * @param {object} employee - This is the employee object that we want to post to the server.
  * @return {Promise} The new employee object.
  */
-async function postEmployee(employee) {
-  const response = await fetch('http://localhost:5000/employees', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(employee),
-  });
-  return response.json();
+async function postEmployee(employee, employees) {
+  try {
+    const response = await fetch('http://localhost:5000/employees', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(employee),
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return employees.push(employee);
+  }
 }
 
 /**
- * It sends a DELETE request to the server, with the id of the employee to delete
- * @param {number} id - The id of the employee to delete.
- * @returns The response from the server.
+ * It takes an id and an array of employees as arguments, and returns the deleted employee
+ * @param {number} id - The id of the employee to be deleted.
+ * @param {array} employees - the array of employees
+ * @returns {Promise} - The employee that was deleted.
  */
-async function deleteEmployee(id) {
-  const response = await fetch('http://localhost:5000/employees/', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id }),
-  });
-  return response.json();
+async function deleteEmployee(id, employees) {
+  try {
+    const response = await fetch('http://localhost:5000/employees/', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    });
+    return response.json();
+  } catch (error) {
+    const employeeDeleted = employees.find((employee) => employee.id === id);
+    return employees.splice(employees.indexOf(employeeDeleted), 1);
+  }
 }
 
 export { getEmployeesList, postEmployee, deleteEmployee };

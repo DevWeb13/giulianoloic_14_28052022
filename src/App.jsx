@@ -8,7 +8,7 @@ function App() {
   const [employees, setEmployees] = useState([]);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    getEmployeesList().then((data) => {
+    getEmployeesList(employees).then((data) => {
       setEmployees(data);
       setLoader(false);
     });

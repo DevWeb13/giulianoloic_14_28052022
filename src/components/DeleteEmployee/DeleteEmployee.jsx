@@ -39,8 +39,8 @@ function DeleteEmployee({ employees, setEmployees, setLoader }) {
                   )
                 ) {
                   setLoader(true);
-                  deleteEmployee(employeeId).then(() => {
-                    getEmployeesList().then((newList) => {
+                  deleteEmployee(employeeId, employees).then(() => {
+                    getEmployeesList(employees).then((newList) => {
                       setEmployees(newList);
                       setEmployeeId(0);
                       setDeleteFormIsIsOpen(false);

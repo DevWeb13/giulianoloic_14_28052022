@@ -69,8 +69,8 @@ function Form({ employees, setEmployees, setIsOpen, setLoader }) {
             dateOfBirth: formatDateOfBirth,
             startDate: formatStartDate,
           };
-          postEmployee(newEmployee).then(() => {
-            getEmployeesList().then((newList) => {
+          postEmployee(newEmployee, employees).then(() => {
+            getEmployeesList(employees).then((newList) => {
               setEmployees(newList);
               setLoader(false);
               setIsOpen(true);
