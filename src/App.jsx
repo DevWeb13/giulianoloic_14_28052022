@@ -7,6 +7,7 @@ import { getEmployeesList } from './utils/dataManager';
 function App() {
   const [employees, setEmployees] = useState([]);
   const [loader, setLoader] = useState(true);
+
   useEffect(() => {
     getEmployeesList(employees).then((data) => {
       setEmployees(data);

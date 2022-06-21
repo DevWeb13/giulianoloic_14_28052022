@@ -10,13 +10,7 @@ import { faHouse, faTableList } from '@fortawesome/free-solid-svg-icons';
  * @returns {React.ReactElement} - React Header component element
  */
 function Header({ title }) {
-  const getUrl = () => {
-    const url = window.location.pathname;
-    const path = url.split('/');
-    return path[path.length - 1];
-  };
-
-  return getUrl() === '' ? (
+  return title === 'HRnet' ? (
     <header>
       <h1>{title}</h1>
       <Link className="linkToEmployeesList" to="/employees-list">
