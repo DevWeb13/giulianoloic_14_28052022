@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes, { oneOfType } from 'prop-types';
-import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
+// import EmployeesTable from '../../components/EmployeesTable/EmployeesTable';
+import { DataTableReact } from 'devweb13-libraries-react';
 import Header from '../../components/Header/Header';
 import DeleteEmployee from '../../components/DeleteEmployee/DeleteEmployee';
 import Loader from '../../components/Loader/Loader';
@@ -34,7 +35,7 @@ function EmployeesList({ employees, setEmployees, loader, setLoader }) {
         <Loader />
       ) : (
         <>
-          <EmployeesTable employees={employees} />
+          <DataTableReact employees={employees} />
 
           {showDelete()}
         </>

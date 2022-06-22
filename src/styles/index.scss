@@ -1,8 +1,8 @@
 @import './settings';
+@import '../pages/Home/home';
+@import '../pages/EmployeesList/employeesList';
 @import '../components/Header/header';
 @import '../components/Form/form';
-@import '../pages/Home/home';
-@import '../components/EmployeesTable/employeesTable';
 @import '../components/ModalComp/modalComp';
 @import '../components/DeleteEmployee/deleteEmployee';
 @import '../components/Loader/loader';
