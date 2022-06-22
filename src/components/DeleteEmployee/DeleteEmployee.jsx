@@ -13,6 +13,32 @@ function DeleteEmployee({ employees, setEmployees, setLoader }) {
   const [deleleFormIsOpen, setDeleteFormIsIsOpen] = useState(false);
   const [employeeId, setEmployeeId] = useState(0);
   const [employeeNotFound, setEmployeeNotFound] = useState(false);
+
+  function validDeleteForm(e) {
+    e.preventDefault();
+    employees.forEach(async (employee) => {
+      if (employee.id === employeeId) {
+        if (
+          // eslint-disable-next-line no-alert
+          window.confirm(
+            `Are you sure you want to delete ${employee.firstName} ${employee.lastName}?`,
+          )
+        ) {
+          setLoader(true);
+          await deleteEmployee(employeeId, employees);
+          const newList = await getEmployeesList(employees);
+          setEmployees(newList);
+          setEmployeeId(0);
+          setDeleteFormIsIsOpen(false);
+          setEmployeeNotFound(false);
+          setLoader(false);
+        }
+      } else {
+        setEmployeeId(0);
+        setEmployeeNotFound(true);
+      }
+    });
+  }
   return (
     <div className="deleteEmployee">
       <button
@@ -26,36 +52,7 @@ function DeleteEmployee({ employees, setEmployees, setLoader }) {
         {deleleFormIsOpen ? 'Close' : 'Delete employee'}
       </button>
       {deleleFormIsOpen && (
-        <form
-          className="deleteForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-            employees.forEach((employee) => {
-              if (employee.id === employeeId) {
-                if (
-                  // eslint-disable-next-line no-alert
-                  window.confirm(
-                    `Are you sure you want to delete ${employee.firstName} ${employee.lastName}?`,
-                  )
-                ) {
-                  setLoader(true);
-                  deleteEmployee(employeeId, employees).then(() => {
-                    getEmployeesList(employees).then((newList) => {
-                      setEmployees(newList);
-                      setEmployeeId(0);
-                      setDeleteFormIsIsOpen(false);
-                      setEmployeeNotFound(false);
-                      setLoader(false);
-                    });
-                  });
-                }
-              } else {
-                setEmployeeId(0);
-                setEmployeeNotFound(true);
-              }
-            });
-          }}
-        >
+        <form className="deleteForm" onSubmit={(e) => validDeleteForm(e)}>
           <label htmlFor="employeeId">Employee id</label>
           <input
             type="number"

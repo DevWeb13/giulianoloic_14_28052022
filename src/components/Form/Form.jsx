@@ -44,41 +44,37 @@ function Form({ employees, setEmployees, setIsOpen, setLoader }) {
     });
   }, [employees]);
 
+  async function validForm(e) {
+    e.preventDefault();
+    setLoader(true);
+    if (
+      employee.firstName &&
+      employee.lastName &&
+      employee.dateOfBirth &&
+      employee.startDate &&
+      employee.street &&
+      employee.city &&
+      employee.state &&
+      employee.zipCode &&
+      employee.department
+    ) {
+      const formatDateOfBirth = formatDates(employee.dateOfBirth);
+      const formatStartDate = formatDates(employee.startDate);
+      const newEmployee = {
+        ...employee,
+        dateOfBirth: formatDateOfBirth,
+        startDate: formatStartDate,
+      };
+      await postEmployee(newEmployee, employees);
+      const newList = await getEmployeesList(employees);
+      setEmployees(newList);
+      setLoader(false);
+      setIsOpen(true);
+    }
+  }
+
   return (
-    <form
-      className="formGroup"
-      id="form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setLoader(true);
-        if (
-          employee.firstName &&
-          employee.lastName &&
-          employee.dateOfBirth &&
-          employee.startDate &&
-          employee.street &&
-          employee.city &&
-          employee.state &&
-          employee.zipCode &&
-          employee.department
-        ) {
-          const formatDateOfBirth = formatDates(employee.dateOfBirth);
-          const formatStartDate = formatDates(employee.startDate);
-          const newEmployee = {
-            ...employee,
-            dateOfBirth: formatDateOfBirth,
-            startDate: formatStartDate,
-          };
-          postEmployee(newEmployee, employees).then(() => {
-            getEmployeesList(employees).then((newList) => {
-              setEmployees(newList);
-              setLoader(false);
-              setIsOpen(true);
-            });
-          });
-        }
-      }}
-    >
+    <form className="formGroup" id="form" onSubmit={(e) => validForm(e)}>
       <label className="label" htmlFor="firstName">
         First Name
       </label>

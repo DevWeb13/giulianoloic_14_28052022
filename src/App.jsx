@@ -8,11 +8,14 @@ function App() {
   const [employees, setEmployees] = useState([]);
   const [loader, setLoader] = useState(true);
 
+  async function getData() {
+    const data = await getEmployeesList(employees);
+    setEmployees(data);
+    setLoader(false);
+  }
+
   useEffect(() => {
-    getEmployeesList(employees).then((data) => {
-      setEmployees(data);
-      setLoader(false);
-    });
+    getData();
   }, []);
 
   return (
