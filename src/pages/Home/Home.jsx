@@ -14,7 +14,7 @@ import ModalComp from '../../components/ModalComp/ModalComp';
  * @return {React.ReactElement} - React Home component element
  */
 function Home({ employees, setEmployees, loader, setLoader }) {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(true);
   return (
     <div className="container">
       <Header title="HRnet" />
