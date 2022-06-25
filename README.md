@@ -21,7 +21,9 @@ Web application to create or delete an employee and be able to view the list of 
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=DevWeb13_giulianoloic_14_28052022)](https://sonarcloud.io/summary/new_code?id=DevWeb13_giulianoloic_14_28052022)
 
-*Two repositories are needed to enable the project to run:*
+*Two repositories are needed to enable the project to run*
+
+New update: This project can be used without a back end
 
 
 ## 1. BACK-END API
