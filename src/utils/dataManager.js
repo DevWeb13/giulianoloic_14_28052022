@@ -5,7 +5,7 @@
  */
 async function getEmployeesList(employees) {
   try {
-    const response = await fetch('http://localhost:5000/employees', {
+    const response = await fetch('https://server-p14.vercel.app/employees', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -24,7 +24,7 @@ async function getEmployeesList(employees) {
  */
 async function postEmployee(employee, employees) {
   try {
-    const response = await fetch('http://localhost:5000/employees', {
+    const response = await fetch('https://server-p14.vercel.app/employees', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ async function postEmployee(employee, employees) {
  */
 async function deleteEmployee(id, employees) {
   try {
-    const response = await fetch('http://localhost:5000/employees/', {
+    const response = await fetch('https://server-p14.vercel.app/employees', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
